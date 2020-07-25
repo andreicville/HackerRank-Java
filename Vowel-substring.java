@@ -22,31 +22,42 @@ class Result {
      *  1. STRING s
      *  2. INTEGER k
      */
+static String strVowels = "aeiou";
 
-    public static String findSubstring(String s, int k) {
-    // Write your code here
+    // Counting Vowels in a given string
+	public static int countVowels(String str) {
+		int count = 0;
+		for (int j = 0; j < str.length(); j++) {
+			if (strVowels.indexOf(str.charAt(j)) >= 0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
     
-    String strVowels = "aeiou";
-    String myString = new String();
-    char givenString[] = s.toCharArray();
-    ArrayList<Integer> countV= new ArrayList<Integer>();
-    for (int i=0; i<givenString.length-k; i++) {
-        if (strVowels.contains(givenString[i])) {
-              myString = s.substring(i, i+k);
-              int count = 0;
-              for (int j=0; j<k;j++) {
-                  if (strVowels.contains(myString.CharAt(j))) {
-                      count++;
-                  }
-              }
-              countV.add(count);
-              break;
-        }
-    }
-    System.out.println(myString);
+	public static String findSubstring(String s, int k) {
+		String myString = new String();
+		char[] givenString = s.toCharArray();
+		int maxV = 0;
+		int vowelsQuant = 0;
+		String strGood = "";
+		
+		// No Vowels found
+		if (countVowels(s) == 0)
+			return "Not found!";
 
-    }
-
+		for (int i = 0; i <= givenString.length - k; i++) {
+			myString = s.substring(i, i + k);
+			vowelsQuant = countVowels(myString);
+			if (vowelsQuant > maxV) {
+				maxV = vowelsQuant;
+				strGood = myString;
+			}
+		}
+		return strGood;
+	}
+   
 }
 
 
