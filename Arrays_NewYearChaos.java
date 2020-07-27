@@ -44,21 +44,29 @@ package HackerRank1;
 //Too chaotic
 public class Arrays_NewYearChaos {
 
-	public static void main(String []args){
+	 public static void main(String []args){
          int[] a = {2,1,5,3,4};
          
         System.out.println(minB(a));
      }
      public static String minB(int[] a) {
          int[] b = new int[a.length];
-         int[] c = {1,2,3,4,5};
+         int[] c = {1,2,4,3,5};
          int counts = 0;
          
-         System.out.println(checkArr(a));
+         for (int i=1; i<c.length;i++) {
+             if (c[i-1] > c[i]) {
+                 //System.out.println(i + ":  " + c[i-1] + "<->" + c[i] + "<->" + c[i+1]);
+                 int temp = c[i];
+                 c[i] = c[i-1];
+                 c[i-1] = temp;
+                 counts++;
+             }
+         }
          
          if (checkArr(c)) {
             // System.out.println("Array sorted - true");
-             return "Array sorted - true";
+            return String.valueOf(counts);
          }
          else return "Too chaotic";
         
@@ -70,5 +78,4 @@ public class Arrays_NewYearChaos {
          }
          return true;
      }
-
 }
