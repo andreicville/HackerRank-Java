@@ -50,50 +50,20 @@ public class Arrays_NewYearChaos {
         System.out.println(minB(a));
      }
      public static String minB(int[] a) {
-         int[] b = new int[a.length];
-         int[] c = {4,1,2,3,5};
-         int counts = 0;
-         
-         int[] steps = new int[a.length];
-         
-         
-         for (int i=1; i<c.length;i++) {
-             if ((c[i-1] > c[i]) && (steps[i] <2) && (steps[i-1] < 2)) {
-                 System.out.println(i + ":  " + c[i-1] + "<->" + c[i] + " and " + steps[i-1] + "<->" + steps[i]);
-                 
-                 int temp1 = c[i];
-                 c[i] = c[i-1];
-                 c[i-1] = temp1;
-                 int temp2 =steps[i]+1; 
-                 steps[i]=steps[i-1]+1;
-                 steps[i-1]=temp2;
-                 
-                 counts++;
-             }
-             else if ((c[i-1] > c[i])) { return "Too chaotic"; 
-                 
-             }
+       int counts = 0;
+
+  for (int i=0; i<q.length; i++) {
+         if ((q[i] - (i+1)) >2) {
+            
+             return "Too chaotic";
          }
-         for (int i:c) {
-         System.out.print(i + " ");
-         }
-         System.out.println();
-           for (int i:steps) {
-         System.out.print(i + " ");
-         }
-         System.out.println();
-         if (checkArr(c)) {
-            // System.out.println("Array sorted - true");
-            return String.valueOf(counts);
-         }
-         else return "Too chaotic";
-        
-     }
-     
-     public static boolean checkArr(int[] a) {
-         for (int i=1; i<a.length; i++) {
-             if (a[i-1] > a[i]) return false;
-         }
-         return true;
+      int max = 0;
+      if ((q[i]-2) >0) max= q[i] -2;
+      
+      for (int j=max; j<i; j++) {
+          if (q[j] > q[i]) counts++;
+      }
+  }
+  return String.valueOf(counts));
      }
 }
