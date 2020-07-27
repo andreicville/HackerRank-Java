@@ -44,7 +44,7 @@ package HackerRank1;
 //Too chaotic
 public class Arrays_NewYearChaos {
 
-	 public static void main(String []args){
+	  public static void main(String []args){
          int[] a = {2,1,5,3,4};
          
         System.out.println(minB(a));
@@ -69,6 +69,9 @@ public class Arrays_NewYearChaos {
                  steps[i-1]=temp2;
                  
                  counts++;
+             }
+             else if ((c[i-1] > c[i])) { return "Too chaotic"; 
+                 
              }
          }
          for (int i:c) {
