@@ -51,11 +51,12 @@ public class Arrays_NewYearChaos {
      }
      public static String minB(int[] a) {
          int[] b = new int[a.length];
+         int[] c = {1,2,3,4,5};
          int counts = 0;
          
          System.out.println(checkArr(a));
          
-         if (checkArr(a)) {
+         if (checkArr(c)) {
             // System.out.println("Array sorted - true");
              return "Array sorted - true";
          }
